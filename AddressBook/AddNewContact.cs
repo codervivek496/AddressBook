@@ -135,11 +135,30 @@ namespace AddressBook
                             break;
                     }
                 }
-
                 //If input does not match with the contact list detail
                 else
                 {
                     Console.WriteLine("Entered input does not match with contact details");
+                }
+            }
+        }
+
+        //For deleting Added contact details
+        public void DeleteContactDetails()
+        {
+            Console.Write("Enter First name of contact you want to delete: ");
+            string deleteContact = Console.ReadLine();
+            foreach (ContactDetails contactDetails in contactDetailsList)
+            {
+                if (contactDetails.firstName == deleteContact)
+                {
+                    contactDetailsList.Remove(contactDetails);
+                    Console.WriteLine("***contact details deteted***");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong credential");
                 }
             }
         }

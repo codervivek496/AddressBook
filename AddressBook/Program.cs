@@ -13,6 +13,7 @@ namespace AddressBook
                 Console.WriteLine("\n1. Contact details in adress book");
                 Console.WriteLine("2. Add new contact");
                 Console.WriteLine("3. Edit Added contact");
+                Console.WriteLine("4. Delete Added contact");
 
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
@@ -37,7 +38,7 @@ namespace AddressBook
                         editContact.DisplayDetails();
 
                         //Asking user if he/she wants to edit contact details or not
-                        Console.WriteLine(" Do you want to Edit contact details? 1: yes/ 0: No");
+                        Console.WriteLine("Do you want to Edit contact details? 1: yes/ 0: No");
                         Console.WriteLine("Enter your Choice: ");
                         int choice3 = Convert.ToInt32(Console.ReadLine());
                         if (choice3 == 1)
@@ -46,8 +47,34 @@ namespace AddressBook
                             editContact.DisplayDetails();
                         }
                         break;
+                    case 4:
+                        AddNewContact deleteContact = new AddNewContact();
+                        deleteContact.AddContactDetails();
+                        deleteContact.DisplayDetails();
+                        //Asking user if he/she wants to edit contact details or not
+                        Console.WriteLine("Do you want to Edit contact details? 1: yes/ 0: No");
+                        Console.Write("Enter your Choice: ");
+                        int choice4 = Convert.ToInt32(Console.ReadLine());
+                        if (choice4 == 1)
+                        {
+                            deleteContact.EditContactDetails();
+                            deleteContact.DisplayDetails();
+                        }
+                        //Asking user if he she wants to delete contact details or not
+                        Console.WriteLine("Delete Contact using person name? 1. yes/ 0: No");
+                        Console.Write("Enter your choice: ");
+                        int choice42 = Convert.ToInt32(Console.ReadLine());
+                        if (choice42 == 1)
+                        {
+                            deleteContact.DeleteContactDetails();
+                        }
+                        else
+                        {
+                            deleteContact.DisplayDetails();
+                        }
+                        break;
                     default:
-                        Console.WriteLine("Enter corect choice");
+                        Console.WriteLine("Enter correct choice");
                         break;
                 }
             } while (choice != 0);
