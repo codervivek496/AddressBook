@@ -11,6 +11,7 @@ namespace AddressBook
             do
             {
                 Console.WriteLine("\n1. Contact details in adress book");
+                Console.WriteLine("2. Add new contact");
 
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
@@ -21,14 +22,19 @@ namespace AddressBook
                     case 1:
                         Console.WriteLine("Contact details are as shown below");
                         //Passing the input to Constructor parameter through onject
-                        ContactsInfo contactInfo = new ContactsInfo("Vivek", "Kumar", "Somajiguda", "Hyderabad", "Telangana", "viveksinghssm496@gmai.com", "500082", 7004437837);
-                        contactInfo.DisplayInformation();
+                        ContactDetails contactDetails = new ContactDetails("Vivek", "Kumar", "Somajiguda", "Hyderabad", "Telangana", "viveksinghssm496@gmai.com", "500082", 7004437837);
+                        contactDetails.DisplayDetails();
+                        break;
+                    case 2:
+                        AddNewContact addNewContact = new AddNewContact();
+                        addNewContact.AddContactDetails();
+                        addNewContact.DisplayDetails();
                         break;
                     default:
                         Console.WriteLine("Enter corect choice");
                         break;
                 }
-            }while (choice != 0);
+            } while (choice != 0);
         }
     }
 }
