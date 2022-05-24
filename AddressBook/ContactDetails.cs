@@ -30,6 +30,20 @@ namespace AddressBook
             this.phoneNumber = aPhoneNumber;
         }
 
+        public ContactDetails(string? firstName, string? lastName, string? address, string? city, string? state, string? email, int zip1, long phoneNumber)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.email = email;
+            Zip = zip1;
+            this.phoneNumber = phoneNumber;
+        }
+
+        public int Zip { get; }
+
         //Display the contacts details
         public void DisplayDetails()
         {
