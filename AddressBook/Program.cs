@@ -126,6 +126,68 @@ namespace AddressBook
                             Console.WriteLine("No contact details available for deletion");
                         }
                         break;
+                    case 6:
+                        Console.Write("How many Address Books do you need : ");
+                        int need = Convert.ToInt32(Console.ReadLine());
+                        MultipleAddressBook multipleAddressBook = new MultipleAddressBook(need);
+                    GoAgain:
+                        multipleAddressBook.DisplayAllAddressBooks();
+                        multipleAddressBook.AddingMultipleAddressBooks();
+                        multipleAddressBook.DisplayAllAddressBooks();
+                        multipleAddressBook.AccessingAddressBook();
+
+                    Add1:
+                        Console.Write("You want to enter details ? ( Press 1 for Yes / OtherNumber for No) : ");
+                        int choice6 = Convert.ToInt32(Console.ReadLine());
+                        if (choice6 == 1)
+                        {
+                            multipleAddressBook.AddingContactDetails();
+                            multipleAddressBook.DisplayDetails();
+                            goto Add1;
+                        }
+
+                    //Asking user if he/she wanted to edit the contact details or not
+                    Edit1:
+                        if (multipleAddressBook.contactDetailsList[multipleAddressBook.addressBookIndex].Count > 0)
+                        {
+                            Console.Write("Edit contact details using name ? ( Press 1 for Yes / OtherNumber for No) : ");
+                            int choice61 = Convert.ToInt32(Console.ReadLine());
+                            if (choice61 == 1)
+                            {
+                                multipleAddressBook.EditContactDetails();
+                                multipleAddressBook.DisplayDetails();
+                                goto Edit1;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No contact details available to edit");
+                        }
+
+                    //Asking user if he/she wanted to delete the contact details or not
+                    Delete1:
+                        if (multipleAddressBook.contactDetailsList[multipleAddressBook.addressBookIndex].Count > 0)
+                        {
+                            Console.Write("Delete person using person name ? ( Press 1 for Yes / OtherNumber for No) : ");
+                            int choice62 = Convert.ToInt32(Console.ReadLine());
+                            if (choice62 == 1)
+                            {
+                                multipleAddressBook.DeleteContactDetails();
+                                multipleAddressBook.DisplayDetails();
+                                goto Delete1;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No contact details available for deletion");
+                        }
+                        Console.WriteLine("Want to choose Address Book again ? ( Press 1 for Yes / OtherNumber for No) : ");
+                        int start = Convert.ToInt32(Console.ReadLine());
+                        if (start == 1)
+                        {
+                            goto GoAgain;
+                        }
+                        break;
                     default:
                         Console.WriteLine("Enter correct choice");
                         break;
