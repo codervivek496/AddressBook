@@ -1,0 +1,22 @@
+﻿Name of the address book is : A
+
+First Name : Vivek
+Last Name : kumar
+Address : HiTech city
+City : hyderabad
+State : Telangana
+Zip code : 500082
+Phone number : 7004437837
+Email id : viveksinghssm496@gmail.com
+
+
+Name of the address book is : B
+
+First Name : Vanshika
+Last Name : singh
+Address : Anshal
+City : kurukshetra
+State : Hariyana
+Zip code : 131029
+Phone number : 9631007829
+Email id : vanshika191068700@gmail.com

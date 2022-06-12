@@ -327,6 +327,11 @@ namespace AddressBook
             return cityDetailsList;
         }
 
+        internal void AddContactsToTextFile(string key)
+        {
+            throw new NotImplementedException();
+        }
+
         //To add state in state list
         public HashSet<string> AddToStateList()
         {

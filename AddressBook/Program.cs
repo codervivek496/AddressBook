@@ -20,6 +20,8 @@ namespace AddressBook
                 Console.WriteLine(" 8. Search contact details using state");
                 Console.WriteLine(" 9. View contact details using city");
                 Console.WriteLine("10. View contact details using state");
+                Console.WriteLine("11. Read Contacts from a file");
+                Console.WriteLine("12. Write Contacts to a file");
                 Console.WriteLine(" 0. Exit");
                 Console.Write("Enter your choice : ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -33,7 +35,7 @@ namespace AddressBook
                     case 2:
                         multipleAddressBook.DisplayAllAddressBooks();
                         multipleAddressBook.AddContactsInAddressBook();
-                        multipleAddressBook.DisplayAllAddressBooks();
+                        multipleAddressBook.DisplayAddressBookAndContactDetails();
                         break;
                     case 3:
                         multipleAddressBook.EditDetailsOfAddressBook();
@@ -64,6 +66,12 @@ namespace AddressBook
                         multipleAddressBook.GetStateNames();
                         multipleAddressBook.AddToStateDictionary();
                         multipleAddressBook.ViewPersonByState();
+                        break;
+                    case 11:
+                        multipleAddressBook.ReadContactsFromTextFile();
+                        break;
+                    case 12:
+                        multipleAddressBook.WriteContactsToTextFile();
                         break;
                     case 0:
                         return;
