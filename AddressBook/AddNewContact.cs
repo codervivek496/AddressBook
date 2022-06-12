@@ -119,7 +119,6 @@ namespace AddressBook
             {
                 contactDetailsList.Add(details);
             }
-            contactDetailsList.Sort((contact1, contact2) => contact1.firstName.CompareTo(contact2.firstName));
         }
 
         public bool CheckForExistingContact(List<ContactDetails> detailsList, string firstName)
@@ -138,6 +137,7 @@ namespace AddressBook
         //Displaying the details
         public void DisplayDetails()
         {
+            SortingContactDetails();
             Console.WriteLine("\nContact details are as shown below");
             foreach (ContactDetails d in contactDetailsList)
             {
@@ -202,7 +202,7 @@ namespace AddressBook
                             break;
                         case 6:
                             Console.Write("Enter new zip code : ");
-                            string newZip = Console.ReadLine();
+                            String newZip = Console.ReadLine();
                             detail.zip = newZip;
                             break;
                         case 7:
@@ -347,6 +347,37 @@ namespace AddressBook
                 }
             }
             return stateDetailsList;
+        }
+
+        public List<ContactDetails> SortingContactDetails()
+        {
+            Console.WriteLine("1. Sort Contact Details by name");
+            Console.WriteLine("2. Sort Contact Details by city");
+            Console.WriteLine("3. Sort Contact Details by state");
+            Console.WriteLine("4. Sort Contact Details by zip");
+            Console.Write("Enter your choice : ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    contactDetailsList.Sort((contact1, contact2) => contact1.firstName.CompareTo(contact2.firstName));
+                    return contactDetailsList;
+                    break;
+                case 2:
+                    contactDetailsList.Sort((contact1, contact2) => contact1.city.CompareTo(contact2.city));
+                    return contactDetailsList;
+                    break;
+                case 3:
+                    contactDetailsList.Sort((contact1, contact2) => contact1.state.CompareTo(contact2.state));
+                    return contactDetailsList;
+                    break;
+                case 4:
+                    contactDetailsList.Sort((contact1, contact2) => contact1.zip.CompareTo(contact2.zip));
+                    return contactDetailsList;
+                    break;
+                default:
+                    return contactDetailsList;
+            }
         }
     }
 }
