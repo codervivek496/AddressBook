@@ -27,6 +27,8 @@ namespace AddressBook
 
         public void AddingContactDetails()
         {
+            ContactPerson contactPerson = new ContactPerson();
+
         //Filling the contact details
         AddContactDetailsAgain:
             Console.WriteLine("Add details one by one");
@@ -117,6 +119,7 @@ namespace AddressBook
             {
                 contactDetailsList.Add(details);
             }
+            contactDetailsList.Sort((contact1, contact2) => contact1.firstName.CompareTo(contact2.firstName));
         }
 
         public bool CheckForExistingContact(List<ContactDetails> detailsList, string firstName)
@@ -135,9 +138,10 @@ namespace AddressBook
         //Displaying the details
         public void DisplayDetails()
         {
+            Console.WriteLine("\nContact details are as shown below");
             foreach (ContactDetails d in contactDetailsList)
             {
-                Console.WriteLine("\nContact details are as shown below");
+                Console.WriteLine();
                 Console.WriteLine("First Name : " + d.firstName);
                 Console.WriteLine("Last Name : " + d.lastName);
                 Console.WriteLine("Address : " + d.address);
@@ -198,7 +202,7 @@ namespace AddressBook
                             break;
                         case 6:
                             Console.Write("Enter new zip code : ");
-                            String newZip = Console.ReadLine();
+                            string newZip = Console.ReadLine();
                             detail.zip = newZip;
                             break;
                         case 7:
