@@ -28,7 +28,7 @@ namespace AddressBook
             for (int i = 0; i < contactDetailsList.Length; i++)
             {
                 contactDetailsList[i] = new List<ContactDetails>();
-                Console.WriteLine(contactDetailsList[i]);
+                //Console.WriteLine(detailsList[i]);
             }
 
             AddrBook = new Dictionary<string, int>();
@@ -148,7 +148,7 @@ namespace AddressBook
             {
                 foreach (ContactDetails d in contactDetailsList[addressBookIndex])
                 {
-                    if (d.firstName == firstName)
+                    if (d.firstName.ToUpper() == firstName.ToUpper())
                     {
                         //Setting flag to 1 if same firstName is present
                         flag = 1;
@@ -244,7 +244,7 @@ namespace AddressBook
                             break;
                         case 6:
                             Console.Write("Enter new zip code : ");
-                            string newZip = (Console.ReadLine());
+                            string newZip = Console.ReadLine();
                             detail.zip = newZip;
                             break;
                         case 7:
@@ -276,9 +276,13 @@ namespace AddressBook
         {
             Console.Write("Enter First name of the contact detail you want to delete : ");
             string deleteName = Console.ReadLine();
+
+            //Lambda expression to find if deleteName is present in the records or not
+            ContactDetails detailsTemp = contactDetailsList[addressBookIndex].FirstOrDefault(x => x.firstName == deleteName);
+
             foreach (ContactDetails detail in contactDetailsList[addressBookIndex])
             {
-                if (detail.firstName == deleteName)
+                if (detail.firstName == detailsTemp.firstName)
                 {
                     contactDetailsList[addressBookIndex].Remove(detail);
                     Console.WriteLine("Person details deleted");
