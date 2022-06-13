@@ -301,7 +301,7 @@ namespace AddressBook
         //To Read contacts from a text file
         public void ReadContactsFromTextFile()
         {
-            string path = @"C:\Users\Lokesh\CS\AddressBook\AddressBook\ReadFile.txt";
+            string path = @"C:\Users\LENOVO\source\repos\AddressBook\AddressBook\ReadFile.txt";
             Console.WriteLine("Reading data from a text file\n");
             if (File.Exists(path))
             {
@@ -329,7 +329,7 @@ namespace AddressBook
             int readChoice = Convert.ToInt32(Console.ReadLine());
             if (readChoice == 1)
             {
-                string readPath = @"C:\Users\Lokesh\CS\AddressBook\AddressBook\WriteFile.txt";
+                string readPath = @"C:\Users\LENOVO\source\repos\AddressBook\AddressBook\WriteFile.txt";
                 Console.WriteLine("Reading appended data from the text file");
 
                 if (File.Exists(readPath))
